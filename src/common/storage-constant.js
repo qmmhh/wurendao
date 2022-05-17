@@ -1,3 +1,3 @@
 export const storageConstant = {
-    THEME_DARK: 'theme_dark'
+    THEME_DARK: 'wurendao_theme_dark'
 }
