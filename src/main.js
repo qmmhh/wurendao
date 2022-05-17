@@ -8,6 +8,8 @@ import vuetify from './plugins/vuetify'
 import Message from "vue-m-message" // https://mengdu.github.io/m-message/index.html#/
 import 'vue-m-message/dist/index.css'
 
+import {conf} from '/public/conf'
+
 Vue.config.productionTip = false
 
 Vue.use(Message)
@@ -23,3 +25,5 @@ new Vue({
         }
     }
 }).$mount('#app')
+
+document.title = conf.title

@@ -1,3 +1,4 @@
 export const conf = {
-    a: 123456
+    title: '无人岛',
+    favicon: 'https://avatars.githubusercontent.com/u/97961245?v=4'
 }
