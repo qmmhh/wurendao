@@ -1,8 +1,6 @@
 import axios from 'axios'
 
-const service = axios.create({
-    baseURL: process.env.BASE_API
-})
+const service = axios.create()
 
 service.interceptors.request.use(
     config => {
