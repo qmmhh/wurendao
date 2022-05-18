@@ -12,7 +12,6 @@
                         <v-scroll-x-transition mode="out-in">
                             <router-view/>
                         </v-scroll-x-transition>
-                        <!--        <ToolFooter/>-->
                     </v-col>
                     <v-col cols="0" lg="2"></v-col>
                 </v-row>
@@ -25,7 +24,6 @@
     import BoxAside from './BoxAside'
     import BoxHeader from './BoxHeader'
     import Breadcrumbs from "./Breadcrumbs"
-    import ToolFooter from "../ToolFooter"
 
     export default {
         name: "Box",
@@ -33,8 +31,7 @@
         components: {
             BoxAside,
             BoxHeader,
-            Breadcrumbs,
-            ToolFooter
+            Breadcrumbs
         }
     }
 </script>
