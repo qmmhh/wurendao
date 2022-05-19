@@ -1,6 +1,10 @@
 {
-    "title": "无人岛",
-    "faviconUrl": "https://avatars.githubusercontent.com/u/97961245?v=4|",
-    "nickname": "xxhghasd",
-    "avatarUrl": "https://avatars.githubusercontent.com/u/97961246?v=4"
+    "site": {
+        "title": "无人岛",
+        "faviconUrl": "https://avatars.githubusercontent.com/u/97961245?v=4|"
+    },
+    "me": {
+        "nickname": "马猴烧酒",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/97961241?v=4"
+    }
 }

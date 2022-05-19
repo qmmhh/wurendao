@@ -7,7 +7,7 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import Message from 'vue-m-message' // https://mengdu.github.io/m-message/index.html#/
 import 'vue-m-message/dist/index.css'
-import {getConf} from '@/request/init'
+import {init} from '@/assets/js/init'
 
 Vue.config.productionTip = false
 
@@ -22,9 +22,6 @@ new Vue({
         if (!storage.has(storageConstant.THEME_DARK)) {
             storage.set(storageConstant.THEME_DARK, false)
         }
-        getConf().then(res => {
-            this.$store.commit('me/SET_NICKNAME', res.data.nickname)
-            this.$store.commit('me/SET_AVATAR_URL', res.data.avatarUrl)
-        })
+        init()
     }
 }).$mount('#app')
