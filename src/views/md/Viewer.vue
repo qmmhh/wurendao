@@ -26,7 +26,7 @@
         },
         methods: {
             setMd() {
-                req.get((this.$route.query.raw)).then(raw => this.md = raw.data).catch(e => this.$message.error(e.toString()))
+                req.get((this.$route.query.url)).then(raw => this.md = raw.data).catch(e => this.$message.error(e.toString()))
             }
         },
         watch: {

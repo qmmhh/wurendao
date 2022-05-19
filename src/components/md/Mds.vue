@@ -6,23 +6,19 @@
         class="d-flex"
     >
             <span>
-<!--                <router-link :to="{path: '/md', query: {raw: md.download_url}}"-->
-              <!--                             class="text-decoration-none"-->
-              <!--                >-->
-              <!--                    {{md.name.substring(0, md.name.lastIndexOf("."))}}-->
-              <!--                </router-link>-->
-                <v-btn :to="{path: '/md', query: {raw: md.download_url}}" text>
-                    {{ md.name.substring(0, md.name.lastIndexOf(".")) }}
-                </v-btn>
+                <router-link :to="{path: '/md', query: {url: `./md/${md.fullFileName}`}}" class="text-decoration-none">
+                  {{ md.name }}
+                </router-link>
             </span>
       <v-spacer/>
-      <span><v-btn :href="`https://github.com/prprhub/prprhub.github.io.md/commits/main/${md.path}`" icon><v-icon>mdi-history</v-icon></v-btn></span>
+      <span>{{ md.date }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import {allMds} from "@/request/github/rest-api/repo-content"
+import _ from 'lodash'
+import {getMdFileNames} from "@/request/mds";
 
 export default {
   name: "Mds",
@@ -30,12 +26,22 @@ export default {
     mds: []
   }),
   mounted() {
-    this.updateMds()
+    this.setMds()
   },
   methods: {
-    updateMds() {
-      allMds().then(res => this.mds = _.orderBy(res.data, ['name'], ['desc']))
-          .catch(e => this.$message.error(e.toString()))
+    setMds() {
+      getMdFileNames().then(res => {
+        const mdFileNames = _.reverse(_.sortBy(res.data))
+        this.mds = _.map(mdFileNames, (mdFileName) => {
+          let suffix = mdFileName.substring(0, mdFileName.lastIndexOf('.'))
+          let split = suffix.split(' - ')
+          return {
+            date: split[0],
+            name: split[1],
+            fullFileName: mdFileName
+          }
+        })
+      })
     }
   }
 }
